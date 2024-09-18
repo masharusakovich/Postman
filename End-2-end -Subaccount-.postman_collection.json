@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "8295590c-8d94-45be-9542-5c067f596867",
+		"name": "End-2-end \"Subaccount\"",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38368121"
+	},
+	"item": [
+		{
+			"name": "Create subaccount",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Ff!vNKC#AYSqEq57",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "innowise",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"child_user_email\": \"masha@llv.com\", \"delegation_types\": [\r\n        \"1\",\r\n        \"2\"\r\n    ], \"order_key\": \"id\", \"orders\": [\r\n        \"*\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SV}}/public/subaccount",
+					"host": [
+						"{{SV}}"
+					],
+					"path": [
+						"public",
+						"subaccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Total number of subaccounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SV}}/public/subaccounts?page=1",
+					"host": [
+						"{{SV}}"
+					],
+					"path": [
+						"public",
+						"subaccounts"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "SV",
+			"value": "https://public-api-pre.serverplan.host"
+		}
+	]
+}
